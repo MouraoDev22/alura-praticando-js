@@ -5,3 +5,29 @@
 
 // Crie um programa que, dado o nome da fruta, verifique se ela é compatível com a receita.
 
+const frutas = ["laranja", "abacaxi", "morango", "banana", "uva", "mamão", "manga", "pera", "goiaba", "kiwi"];
+const frutasCompativeis = ["laranja", "abacaxi"];
+
+let frutaInformada = prompt("Digite o nome da fruta para verificar a compatibilidade com a receita de suco: ").toLowerCase();
+frutaInformada = verificarEntrada(frutaInformada);
+
+const mensagemDeCompatibilidade = verificarListaDeFrutas(frutaInformada, frutas, frutasCompativeis);
+console.log(mensagemDeCompatibilidade);
+
+function verificarEntrada(frutaInformada) {
+    const regexFruta = /^[a-zA-ZÀ-ÿ\s]+$/;
+    while (!regexFruta.test(frutaInformada) || frutaInformada.trim() === "") {
+        frutaInformada = prompt("Entrada inválida. Digite apenas o nome de uma fruta que esteja na lista: ").toLowerCase();
+    }
+    return frutaInformada;
+}
+
+function verificarListaDeFrutas(frutaInformada, frutas, frutasCompativeis) {
+    if (!frutas.includes(frutaInformada)) {
+        return `A fruta ${frutaInformada} não está na lista de frutas disponíveis.`;
+    }
+    if (frutasCompativeis.includes(frutaInformada)) {
+        return (`A fruta ${frutaInformada} é compatível com a receita de suco.`);
+    }
+    return (`A fruta ${frutaInformada} não é compatível com a receita de suco.`);
+}
