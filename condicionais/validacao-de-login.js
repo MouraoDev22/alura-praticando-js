@@ -2,10 +2,11 @@
 
 // Crie um programa utilizando o operador ternário que realize essa verificação e exiba a mensagem correspondente.
 
-const usuario = "admin";
-const mensagem = verificarLogin(usuario);
+const usuariosValidos = ["admin", "gestor", "editor"];
+const usuario = prompt("Digite o nome de usuário: ");
+const mensagem = verificarLogin(usuario, usuariosValidos);
 console.log(mensagem);
 
-function verificarLogin(usuario) {
-    return usuario === "admin" ? "Login bem-sucedido!" : "Usuário inválido.";
+function verificarLogin(usuario, usuariosValidos) {
+    return usuariosValidos.includes(usuario) ? "Login bem-sucedido!" : "Usuário inválido.";
 }

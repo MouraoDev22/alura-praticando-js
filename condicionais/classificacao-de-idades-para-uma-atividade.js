@@ -10,7 +10,7 @@ let idade = Number(prompt("Digite uma idade: "));
 idade = verificarSeEhNumero(idade);
 
 const resultado = classificarIdade(idade);
-console.log(`Essa pessoa está na categoria: ${resultado}.`);
+console.log(resultado);
 
 function verificarSeEhNumero(idade) {
     while (isNaN(idade) || idade < 0) {
@@ -21,10 +21,12 @@ function verificarSeEhNumero(idade) {
 
 function classificarIdade(idade) {
     if (idade < 12) {
-        return "Infantil";
+        return "Essa pessoa está na categoria: Infantil";
     } else if (idade >= 12 && idade < 18) {
-        return "Juvenil";
+        return "Essa pessoa está na categoria: Juvenil";
+    } else if (idade >= 18 && idade < 60) {
+        return "Essa pessoa está na categoria: Adulto";
     } else {
-        return "Adulto";
+        return "Essa pessoa está na categoria: Idoso";
     }
 }

@@ -10,7 +10,7 @@ let temperatura = Number(prompt("Digite a temperatura do dia de hoje: "));
 temperatura = verificarSeEhNumero(temperatura);
 
 const resultado = verificarTemperatura(temperatura);
-console.log(`O clima do dia de hoje está ${resultado}.`);
+console.log(resultado);
 
 function verificarSeEhNumero(temperatura) {
     while (isNaN(temperatura)) {
@@ -21,10 +21,10 @@ function verificarSeEhNumero(temperatura) {
 
 function verificarTemperatura(temperatura) {
     if (temperatura < 15) {
-        return "frio.";
+        return "O clima do dia de hoje está frio.";
     } else if (temperatura >= 15 && temperatura <= 25) {
-        return "agradável.";
+        return "O clima do dia de hoje está gradável.";
     } else {
-        return "quente.";
+        return "O clima do dia de hoje está quente.";
     }
 }

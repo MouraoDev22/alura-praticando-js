@@ -15,9 +15,11 @@ function verificarSeEhNumero(idade) {
 }
 
 function verificarAcesso(idade) {
-    if (idade >= 18) {
-        return "Acesso permitido.";
+    if (idade < 12) {
+        return "Acesso negado. Idade mínima não atingida.";
+    } else if (idade >= 12 && idade < 18) {
+        return "Acesso parcial. Necessário acompanhamento.";
     } else {
-        return "Acesso negado.";
+        return "Acesso permitido.";
     }
 }

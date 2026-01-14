@@ -15,10 +15,12 @@
 // Se for sábado (6) ou domingo (0), a loja estará aberta em horário especial.
 // Nos outros dias, a loja estará aberta no horário normal.
 
+const dias = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
+
 let diaDaSemana = Number(prompt("Digite o dia da semana (0 para Domingo, 1 para Segunda-feira, ..., 6 para Sábado): "));
 diaDaSemana = verificarSeEhNumero(diaDaSemana);
 
-const resultado = verificarHorarioFuncionamento(diaDaSemana);
+const resultado = verificarHorarioFuncionamento(diaDaSemana, dias);
 console.log(resultado);
 
 function verificarSeEhNumero(diaDaSemana) {
@@ -28,8 +30,8 @@ function verificarSeEhNumero(diaDaSemana) {
     return diaDaSemana;
 }
 
-function verificarHorarioFuncionamento(diaDaSemana) {
-    return diaDaSemana === 0 || diaDaSemana === 6 
-    ? "A loja está aberta em horário especial das 10h às 14h." 
-    : "A loja está aberta das 9h às 18h.";
+function verificarHorarioFuncionamento(diaDaSemana, dias) {
+    return (dias[0] === dias[diaDaSemana] || dias[6] === dias[diaDaSemana]) 
+    ? `Hoje é ${dias[diaDaSemana]}. A loja está aberta em horário especial, das 10h às 14h.` 
+    : `Hoje é ${dias[diaDaSemana]}. A loja está aberta no horário normal, das 9h às 18h.`;
 }
