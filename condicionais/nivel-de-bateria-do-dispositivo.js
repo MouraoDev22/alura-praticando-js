@@ -6,7 +6,7 @@
 
 // Utilize o operador ternário para definir e exibir a categoria da bateria com base no valor da variável bateria.
 
-let bateria = Number(prompt("Digite a porcentagem de carga da bateria: "));
+let bateria = Math.floor(Number(prompt("Digite a porcentagem de carga da bateria: ")));
 bateria = verificarSeEhNumero(bateria);
 
 const resultado = verificarBateria(bateria);
