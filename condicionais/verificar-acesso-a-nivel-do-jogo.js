@@ -1,0 +1,33 @@
+// Você está criando um sistema para um jogo, onde o personagem tem que passar por duas condições para conseguir avançar para o próximo nível:
+
+// . O personagem precisa ter mais de 50 pontos.
+// . O personagem deve ter pelo menos uma vida restante.
+
+// Crie um programa que, dado os pontos e as vidas restantes, verifique se o personagem pode ou não avançar para o próximo nível.
+
+const pontosMinimos = 50;
+const vidasMinimas = 1;
+
+let pontos = Number(prompt("Digite a quantidade de pontos do personagem: "));
+pontos = verificarSeEhNumero(pontos);
+
+let vidas = Number(prompt("Digite a quantidade de vidas do personagem: "));
+vidas = verificarSeEhNumero(vidas);
+
+const resultado = verificarStatus(pontos, vidas, pontosMinimos, vidasMinimas);
+console.log(resultado);
+
+function verificarSeEhNumero(valor) {
+    while (isNaN(valor) || valor < 0) {
+        valor = Number(prompt("Entrada inválida. Por favor, digite um número válido: "));
+    }
+    return valor;
+}
+
+function verificarStatus(pontos, vidas, pontosMinimos, vidasMinimas) {
+    if (pontos > pontosMinimos && vidas >= vidasMinimas) {
+        return "O personagem pode avançar para o próximo nível.";
+    } else {
+        return "O personagem não pode avançar para o próximo nível.";
+    }
+}
