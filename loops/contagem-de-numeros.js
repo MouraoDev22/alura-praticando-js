@@ -3,12 +3,12 @@
 // Como você pode gerar essa contagem e garantir que cada número seja mostrado até atingir o valor final fornecido?
 
 let numeroFinal = Number(prompt("Digite um número final para a contagem:"));
-numeroFinal = verificarSeEhNumero(numeroFinal);
+numeroFinal = verificarEntrada(numeroFinal);
 
 const mensagemDeFinalizacao = gerarContagem(numeroFinal);
 console.log(mensagemDeFinalizacao);
 
-function verificarSeEhNumero(numeroFinal) {
+function verificarEntrada(numeroFinal) {
     while (isNaN(numeroFinal) || numeroFinal <= 0) {
         numeroFinal = Number(prompt("Entrada inválida. Por favor, digite um número válido: "));
     }
