@@ -11,9 +11,7 @@ function gerarContagem(numeroFinal) {
             console.log(contador);
         }, (numeroFinal - contador) * 1000);
     }
-    if (numeroFinal >= 0) {
-        setTimeout(() => {
-            console.log("Lançar!");
-        }, (numeroFinal + 1) * 1000);
-    }
+    setTimeout(() => {
+        console.log("Lançar!");
+    }, (numeroFinal + 1) * 1000);
 }
