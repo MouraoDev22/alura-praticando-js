@@ -16,7 +16,7 @@ function verificarSeEhNumero(numeroFinal) {
 }
 
 function gerarContagem(numeroFinal) {
-    for (let contador = 1; contador <= numeroFinal; contador++) {
+    for (let contador = 0; contador <= numeroFinal; contador++) {
         console.log(contador);
     }
     return "Contagem finalizada.";
