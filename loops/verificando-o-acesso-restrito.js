@@ -14,9 +14,6 @@ function iniciarContagem() {
     }
     setTimeout(() => {
       console.log(i);
-      if (i === 10) {
-        console.log("Alerta: Número 10 alcançado. Contagem interrompida.");
-      }
     }, (i - 1) * 1000);
   }
 }
