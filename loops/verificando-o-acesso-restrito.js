@@ -5,15 +5,15 @@
 iniciarContagem();
 
 function iniciarContagem() {
-  for (let i = 1; i <= 20; i++) {
-    if (i === 10) {
-      setTimeout(() => {
-        console.log("Alerta: Número 10 alcançado. Contagem interrompida.");
-      }, (9) * 1000);
-      break;
+    for (let i = 1; i <= 20; i++) {
+        if (i === 10) {
+            setTimeout(() => {
+                console.log("Alerta: Número 10 alcançado. Contagem interrompida.");
+            }, 9 * 1000);
+            break;
+        }
+        setTimeout(() => {
+            console.log(i);
+        }, (i - 1) * 1000);
     }
-    setTimeout(() => {
-      console.log(i);
-    }, (i - 1) * 1000);
-  }
 }

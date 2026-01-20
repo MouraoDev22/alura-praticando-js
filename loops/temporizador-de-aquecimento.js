@@ -7,3 +7,25 @@
 // . E ao final, o total de segundos que o sistema permaneceu ligado.
 
 // Crie um programa que simule esse funcionamento do temporizador de aquecimento, garantindo que ele continue funcionando até atingir pelo menos 5 segundos.
+
+const tempoMinimo = 5;
+const temperaturaIdealAlcancadaEm = 3;
+
+iniciarContagem(tempoMinimo, temperaturaIdealAlcancadaEm);
+
+function iniciarContagem(tempoMinimo, temperaturaIdealAlcancadaEm) {
+    for (let i = 1; i <= tempoMinimo; i++) {
+        if (i === temperaturaIdealAlcancadaEm) {
+            setTimeout(() => {
+                console.log("Temperatura ideal atingida.");
+            }, (temperaturaIdealAlcancadaEm + 0.5) * 1000);
+        } else if (i === tempoMinimo) {
+            setTimeout(() => {
+                console.log(`Tempo total de aquecimento: ${tempoMinimo} segundos.`);
+            }, (tempoMinimo + 0.5) * 1000);
+        }
+        setTimeout(() => {
+            console.log(`Aquecendo... segundo ${i}`);
+        }, i * 1000);
+    }
+}

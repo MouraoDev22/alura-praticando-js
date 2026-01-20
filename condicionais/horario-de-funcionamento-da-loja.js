@@ -15,7 +15,7 @@
 // Se for sábado (6) ou domingo (0), a loja estará aberta em horário especial.
 // Nos outros dias, a loja estará aberta no horário normal.
 
-const dias = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
+const dias = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
 
 let diaDaSemana = Number(prompt("Digite o dia da semana (0 para Domingo, 1 para Segunda-feira, ..., 6 para Sábado): "));
 diaDaSemana = verificarSeEhNumero(diaDaSemana);

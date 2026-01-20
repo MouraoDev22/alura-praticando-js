@@ -32,7 +32,7 @@ function verificarEntrada(saldoInicial) {
 
 function calcularSaldoFinal(saldoInicial, valorEconomizadoPorDia, numeroDeDias) {
     for (let i = 1; i <= numeroDeDias; i++) {
-        saldoInicial += valorEconomizadoPorDia * i;   
+        saldoInicial += valorEconomizadoPorDia * i;
     }
     return saldoInicial;
 }

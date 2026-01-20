@@ -27,7 +27,7 @@ function verificarListaDeFrutas(frutaInformada, frutas, frutasCompativeis) {
         return `A fruta ${frutaInformada} não está na lista de frutas disponíveis.`;
     }
     if (frutasCompativeis.includes(frutaInformada)) {
-        return (`A fruta ${frutaInformada} é compatível com a receita de suco.`);
+        return `A fruta ${frutaInformada} é compatível com a receita de suco.`;
     }
-    return (`A fruta ${frutaInformada} não é compatível com a receita de suco.`);
+    return `A fruta ${frutaInformada} não é compatível com a receita de suco.`;
 }
