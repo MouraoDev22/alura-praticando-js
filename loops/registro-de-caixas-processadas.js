@@ -19,7 +19,7 @@ function processarCaixas(caixas) {
         caixasProcessadas++;
         
         if (caixasProcessadas === limiteDeCaixas) {
-            console.log("Limite de caixas processadas atingido.")
+            console.log("Limite de caixas processadas atingido.");
             caixasProcessadas = 0;
             break;
         }
