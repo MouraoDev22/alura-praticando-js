@@ -3,6 +3,7 @@
 // Crie um programa que simule o processamento das caixas, exibindo as válidas e ignorando as danificadas. O programa deve parar o processamento assim que 5 caixas válidas forem processadas.
 
 const caixas = [12, -1, 8, 0, -5, 3, 7, 14];
+const limiteDeCaixas = 5;
 let caixasProcessadas = 0;
 
 processarCaixas(caixas);
@@ -17,7 +18,7 @@ function processarCaixas(caixas) {
         console.log(`Caixa processada: ${caixas[i]}`);
         caixasProcessadas++;
         
-        if (caixasProcessadas === 5) {
+        if (caixasProcessadas === limiteDeCaixas) {
             console.log("Limite de caixas processadas atingido.")
             caixasProcessadas = 0;
             break;
