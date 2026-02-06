@@ -7,7 +7,7 @@
 
 const valorDoDesconto = 10;
 let valorDaCompra = Number(prompt("Digite o valor da sua compra:"));
-verificarEntrada(valorDaCompra);
+valorDaCompra = verificarEntrada(valorDaCompra);
 
 const valorDaCompraComDesconto = calcularDesconto(valorDaCompra, valorDoDesconto);
 console.log(`O valor da sua compra com desconto é de R$${valorDaCompraComDesconto.toFixed(2)}`);
@@ -17,7 +17,9 @@ function calcularDesconto(preco, desconto) {
 };
 
 function verificarEntrada(valor) {
-    while (isNaN(valor) || valor <= 0) {
-        valorDaCompra = Number(prompt("Digite o valor da sua compra:"));
+    let novoValorDaCompra = valor;
+    while (isNaN(novoValorDaCompra) || novoValorDaCompra <= 0) {
+        novoValorDaCompra = Number(prompt("Entrada inválida. Por favor, digite um valor válido:"));
     };
+    return novoValorDaCompra;
 };
