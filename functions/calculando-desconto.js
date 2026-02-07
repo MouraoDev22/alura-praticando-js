@@ -23,3 +23,4 @@ function verificarEntrada(valor) {
     };
     return novoValorDaCompra;
 };
+
