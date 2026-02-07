@@ -4,7 +4,7 @@
 
 // . o nome do cliente,
 // . o tipo do cliente (vip, novo ou comum),
-// .e uma função de callback responsável por exibir uma mensagem após o pedido ser processado.
+// . e uma função de callback responsável por exibir uma mensagem após o pedido ser processado.
 
 const regex = /^[A-Za-zÀ-ú\s]+$/;
 let nome = prompt("Qual é o seu nome?");
