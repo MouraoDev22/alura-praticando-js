@@ -6,16 +6,16 @@ numero = await verificarEntrada(numero);
 contagemRegressiva(numero);
 
 function contagemRegressiva(numero) {
-    let numeroAtual = numero;
-    console.log(numeroAtual);
-    numeroAtual--;
-    const id = setInterval(() => {
-        console.log(numeroAtual);
-        numeroAtual--;
-        if (numeroAtual < 0) {
-            clearInterval(id);
-        };
-    }, 1000);
+  if (numero < 1) {
+    console.log('Lançamento!');
+    return
+  };
+
+  console.log(numero);
+
+  setTimeout(() => {
+    contagemRegressiva(numero - 1);
+  }, 1000);
 };
 
 async function verificarEntrada(numero) {
