@@ -13,10 +13,10 @@ nome = await verificarEntrada(nome);
 
 responderUsuario(nome, mostrarResposta);
 
-function responderUsuario(nome, mostrarResposta) {
+function responderUsuario(nome, callback) {
     console.log('Processando sua pergunta...');
     setTimeout(() => {
-        mostrarResposta(nome);
+        callback(nome);
     }, 3000);
 };
 
