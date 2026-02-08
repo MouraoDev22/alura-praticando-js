@@ -1,0 +1,8 @@
+{
+  "name": "alura-praticando-js",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "nprompt": "github:MouraoDev22/nprompt"
+  }
+}

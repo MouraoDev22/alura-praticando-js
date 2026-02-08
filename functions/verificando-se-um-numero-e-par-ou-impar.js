@@ -5,8 +5,10 @@
 // "Par" se o número for par
 // "Ímpar" se for ímpar
 
-let numero = Number(prompt("Digite um número:"));
-numero = verificarEntrada(numero);
+import prompt from 'nprompt';
+
+let numero = Number(await prompt('Digite um número:'));
+numero = await verificarEntrada(numero);
 
 const verificarParidade = (numero) => {
     if (numero % 2 === 0) {
@@ -18,10 +20,10 @@ const verificarParidade = (numero) => {
 
 verificarParidade(numero);
 
-function verificarEntrada(numero) {
+async function verificarEntrada(numero) {
     let novoNumero = numero;
     while (isNaN(novoNumero) || novoNumero <= 0) {
-        novoNumero = Number(prompt("Entrada inválida. Por favor, digite um número válido:"));
+        novoNumero = Number(await prompt('Entrada inválida. Por favor, digite um número válido:'));
     };
     return novoNumero;
 };

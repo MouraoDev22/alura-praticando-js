@@ -6,25 +6,27 @@
 
 //Escreva um programa que, dado um valor de temperatura e imprima a mensagem correspondente.
 
-let temperatura = Number(prompt("Digite a temperatura do dia de hoje: "));
-temperatura = verificarSeEhNumero(temperatura);
+import prompt from 'nprompt';
+
+let temperatura = Number(await prompt('Digite a temperatura do dia de hoje: '));
+temperatura = await verificarSeEhNumero(temperatura);
 
 const resultado = verificarTemperatura(temperatura);
 console.log(resultado);
 
-function verificarSeEhNumero(temperatura) {
+async function verificarSeEhNumero(temperatura) {
     while (isNaN(temperatura)) {
-        temperatura = Number(prompt("Temperatura inválida. Por favor, digite uma temperatura válida: "));
+        temperatura = Number(await prompt('Temperatura inválida. Por favor, digite uma temperatura válida: '));
     }
     return temperatura;
 }
 
 function verificarTemperatura(temperatura) {
     if (temperatura < 15) {
-        return "O clima do dia de hoje está frio.";
+        return 'O clima do dia de hoje está frio.';
     } else if (temperatura >= 15 && temperatura <= 25) {
-        return "O clima do dia de hoje está gradável.";
+        return 'O clima do dia de hoje está gradável.';
     } else {
-        return "O clima do dia de hoje está quente.";
+        return 'O clima do dia de hoje está quente.';
     }
 }

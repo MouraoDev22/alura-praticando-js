@@ -5,19 +5,21 @@
 
 // Crie um programa que, dado o nome da fruta, verifique se ela é compatível com a receita.
 
-const frutas = ["laranja", "abacaxi", "morango", "banana", "uva", "mamão", "manga", "pera", "goiaba", "kiwi"];
-const frutasCompativeis = ["laranja", "abacaxi"];
+import prompt from 'nprompt';
 
-let frutaInformada = prompt("Digite o nome da fruta para verificar a compatibilidade com a receita de suco: ").toLowerCase();
-frutaInformada = verificarEntrada(frutaInformada);
+const frutas = ['laranja', 'abacaxi', 'morango', 'banana', 'uva', 'mamão', 'manga', 'pera', 'goiaba', 'kiwi'];
+const frutasCompativeis = ['laranja', 'abacaxi'];
+
+let frutaInformada = (await prompt('Digite o nome da fruta para verificar a compatibilidade com a receita de suco: ')).toLowerCase();
+frutaInformada = await verificarEntrada(frutaInformada);
 
 const mensagemDeCompatibilidade = verificarListaDeFrutas(frutaInformada, frutas, frutasCompativeis);
 console.log(mensagemDeCompatibilidade);
 
-function verificarEntrada(frutaInformada) {
+async function verificarEntrada(frutaInformada) {
     const regexFruta = /^[a-zA-ZÀ-ÿ\s]+$/;
-    while (!regexFruta.test(frutaInformada) || frutaInformada.trim() === "") {
-        frutaInformada = prompt("Entrada inválida. Digite apenas o nome de uma fruta que esteja na lista: ").toLowerCase();
+    while (!regexFruta.test(frutaInformada) || frutaInformada.trim() === '') {
+        frutaInformada = (await prompt('Entrada inválida. Digite apenas o nome de uma fruta que esteja na lista: ')).toLowerCase();
     }
     return frutaInformada;
 }

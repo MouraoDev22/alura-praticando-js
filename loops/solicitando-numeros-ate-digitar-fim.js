@@ -2,18 +2,20 @@
 
 // Crie um programa que com base em uma entrada pré-definida de nomes, exiba cada um deles, e encerre somente quando encontrar o valor "fim".
 
+import prompt from 'nprompt';
+
 let listaDeNomes = [];
 const regex = /^[A-Za-zÀ-ú\s]+$/;
-const palavraFim = "fim";
+const palavraFim = 'fim';
 
-inserirNomes();
+await inserirNomes();
 listarNomes(listaDeNomes);
 
-function inserirNomes() {
+async function inserirNomes() {
     for (let i = 0; i < 9; i++) {
-        let nome = prompt("Digite um nome:");
+        let nome = await prompt('Digite um nome:');
         while (!regex.test(nome)) {
-            nome = prompt("Entrada inválida. Por favor, digite um nome válido:");
+            nome = await prompt('Entrada inválida. Por favor, digite um nome válido:');
         }
         listaDeNomes.push(nome);
     }
@@ -25,7 +27,7 @@ function inserirNomes() {
 
 function listarNomes(nomes) {
     for (let i = 0; i < nomes.length; i++) {
-        if (nomes[i] === "fim") {
+        if (nomes[i] === 'fim') {
             break;
         }
         console.log(nomes[i]);

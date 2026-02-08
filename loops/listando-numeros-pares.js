@@ -2,16 +2,18 @@
 
 // Crie um programa que exiba todos os números pares de 1 até o número final fornecido pelo usuário.
 
+import prompt from 'nprompt';
+
 let contador = 0;
-let numero = Number(prompt("Digite um número para listar os números pares até ele:"));
-numero = verificarEntrada(numero);
+let numero = Number(await prompt('Digite um número para listar os números pares até ele:'));
+numero = await verificarEntrada(numero);
 
 const mensagemDeFinalizacao = listarNumerosPares(numero);
 console.log(mensagemDeFinalizacao);
 
-function verificarEntrada(numero) {
+async function verificarEntrada(numero) {
     while (isNaN(numero) || numero <= 0) {
-        numero = Number(prompt("Entrada inválida. Por favor, digite um número válido: "));
+        numero = Number(await prompt('Entrada inválida. Por favor, digite um número válido: '));
     }
     return numero;
 }

@@ -8,7 +8,7 @@ function iniciarContagem() {
     for (let i = 1; i <= 20; i++) {
         if (i === 10) {
             setTimeout(() => {
-                console.log("Alerta: Número 10 alcançado. Contagem interrompida.");
+                console.log('Alerta: Número 10 alcançado. Contagem interrompida.');
             }, 9 * 1000);
             break;
         }

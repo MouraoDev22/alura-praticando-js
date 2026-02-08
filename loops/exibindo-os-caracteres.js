@@ -2,21 +2,23 @@
 
 // Como você pode percorrer e exibir todos os caracteres de uma senha digitada, um por um?
 
+import prompt from 'nprompt';
+
 const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-let senha = prompt("Digite sua senha:");
-senha = verificarEntrada(senha);
+let senha = await prompt('Digite sua senha:');
+senha = await verificarEntrada(senha);
 
 exibirCaracteresDaSenha(senha);
 
-function verificarEntrada(senha) {
+async function verificarEntrada(senha) {
     while (senha.length === 0 || !regex.test(senha)) {
-        senha = prompt("Entrada inválida. Por favor, digite uma senha válida, com pelo menos 8 caracteres, incluindo letras e números: ");
+        senha = await prompt('Entrada inválida. Por favor, digite uma senha válida, com pelo menos 8 caracteres, incluindo letras e números: ');
     }
     return senha;
 }
 
 function exibirCaracteresDaSenha(senha) {
-    console.log("Caracteres da senha digitada:");
+    console.log('Caracteres da senha digitada:');
     for (let i = 0; i < senha.length; i++) {
         console.log(`Caractere ${i + 1}: ${senha[i]}`);
     }

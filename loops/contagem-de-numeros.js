@@ -2,15 +2,17 @@
 
 // Como você pode gerar essa contagem e garantir que cada número seja mostrado até atingir o valor final fornecido?
 
-let numeroFinal = Number(prompt("Digite um número final para a contagem:"));
-numeroFinal = verificarEntrada(numeroFinal);
+import prompt from 'nprompt';
+
+let numeroFinal = Number(await prompt('Digite um número final para a contagem:'));
+numeroFinal = await verificarEntrada(numeroFinal);
 
 const mensagemDeFinalizacao = gerarContagem(numeroFinal);
 console.log(mensagemDeFinalizacao);
 
-function verificarEntrada(numeroFinal) {
+async function verificarEntrada(numeroFinal) {
     while (isNaN(numeroFinal) || numeroFinal <= 0) {
-        numeroFinal = Number(prompt("Entrada inválida. Por favor, digite um número válido: "));
+        numeroFinal = Number(await prompt('Entrada inválida. Por favor, digite um número válido: '));
     }
     return numeroFinal;
 }
@@ -19,5 +21,5 @@ function gerarContagem(numeroFinal) {
     for (let contador = 0; contador <= numeroFinal; contador++) {
         console.log(contador);
     }
-    return "Contagem finalizada.";
+    return 'Contagem finalizada.';
 }

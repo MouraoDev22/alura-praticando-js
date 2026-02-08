@@ -6,16 +6,18 @@
 
 // Seu desafio é escolher o tipo de função mais adequado para resolver este problema. Função tradicional? Arrow Function? E aí? Como vai implementar esse desafio?
 
-let distancia = Number(prompt("Digite a distância em km:"));
-distancia = verificarEntrada(distancia);
+import prompt from 'nprompt';
+
+let distancia = Number(await prompt('Digite a distância em km:'));
+distancia = await verificarEntrada(distancia);
 
 const valorDoFrete = calcularFrete(distancia);
 console.log(`O valor do frete é de R$${valorDoFrete.toFixed(2)}`);
 
-function verificarEntrada(distancia) {
+async function verificarEntrada(distancia) {
     let novaDistancia = distancia;
     while (isNaN(novaDistancia) || novaDistancia <= 0) {
-        novaDistancia = Number(prompt("Entrada inválida. Por favor, digite uma distância válida:"));
+        novaDistancia = Number(await prompt('Entrada inválida. Por favor, digite uma distância válida:'));
     };
     return novaDistancia;
 };

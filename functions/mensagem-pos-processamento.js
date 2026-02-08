@@ -6,12 +6,14 @@
 // . o tipo do cliente (vip, novo ou comum),
 // . e uma função de callback responsável por exibir uma mensagem após o pedido ser processado.
 
-const regex = /^[A-Za-zÀ-ú\s]+$/;
-let nome = prompt("Qual é o seu nome?");
-nome = verificarNome(nome);
+import prompt from 'nprompt';
 
-let categoria = prompt("Qual é a sua categoria?(vip, novo ou comum)");
-categoria = verificarCategoria(categoria);
+const regex = /^[A-Za-zÀ-ú\s]+$/;
+let nome = await prompt('Qual é o seu nome?');
+nome = await verificarNome(nome);
+
+let categoria = await prompt('Qual é a sua categoria?(vip, novo ou comum)');
+categoria = await verificarCategoria(categoria);
 
 processarPedido(nome, categoria, mensagemPersonalizada);
 
@@ -21,27 +23,27 @@ function processarPedido(nome, categoria, mensagem) {
 };
 
 function mensagemPersonalizada(nome, categoria) {
-    if (categoria === "vip") {
+    if (categoria === 'vip') {
         return (`Obrigado pela preferência, ${nome}! Você ganhou frete grátis.`);
-    } else if (categoria === "novo") {
+    } else if (categoria === 'novo') {
         return (`Bem-vindo(a), ${nome}! Aproveite um cupom de boas-vindas.`);
     } else {
         return (`Obrigado pela sua compra, ${nome}!`);
     };
 };
 
-function verificarNome(nome) {
+async function verificarNome(nome) {
     let novoNome = nome;
     while (!regex.test(novoNome) || !novoNome) {
-        novoNome = prompt("Entrada inválida. Por favor, digite um nome válido:");
+        novoNome = await prompt('Entrada inválida. Por favor, digite um nome válido:');
     };
     return novoNome;
 };
 
-function verificarCategoria(categoria) {
+async function verificarCategoria(categoria) {
     let novaCategoria = categoria;
-    while (novaCategoria !== "vip" && novaCategoria !== "novo" && novaCategoria !== "comum") {
-        novaCategoria = prompt("Entrada inválida. Por favor, digite uma categoria válida(vip, novo ou comum):");
+    while (novaCategoria !== 'vip' && novaCategoria !== 'novo' && novaCategoria !== 'comum') {
+        novaCategoria = await prompt('Entrada inválida. Por favor, digite uma categoria válida(vip, novo ou comum):');
     };
     return novaCategoria;
 };

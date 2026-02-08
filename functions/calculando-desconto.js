@@ -5,9 +5,11 @@
 // . o preço original do produto,
 // . a porcentagem de desconto (com um valor padrão de 10%).
 
+import prompt from 'nprompt';
+
 const valorDoDesconto = 10;
-let valorDaCompra = Number(prompt("Digite o valor da sua compra:"));
-valorDaCompra = verificarEntrada(valorDaCompra);
+let valorDaCompra = Number(await prompt('Digite o valor da sua compra:'));
+valorDaCompra = await verificarEntrada(valorDaCompra);
 
 const valorDaCompraComDesconto = calcularDesconto(valorDaCompra, valorDoDesconto);
 console.log(`O valor da sua compra com desconto é de R$${valorDaCompraComDesconto.toFixed(2)}`);
@@ -16,11 +18,10 @@ function calcularDesconto(preco, desconto) {
     return preco - (preco * (desconto / 100));
 };
 
-function verificarEntrada(valor) {
+async function verificarEntrada(valor) {
     let novoValorDaCompra = valor;
     while (isNaN(novoValorDaCompra) || novoValorDaCompra <= 0) {
-        novoValorDaCompra = Number(prompt("Entrada inválida. Por favor, digite um valor válido:"));
+        novoValorDaCompra = Number(await prompt('Entrada inválida. Por favor, digite um valor válido:'));
     };
     return novoValorDaCompra;
 };
-
