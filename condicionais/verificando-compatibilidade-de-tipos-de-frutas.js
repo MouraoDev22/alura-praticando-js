@@ -18,18 +18,19 @@ console.log(mensagemDeCompatibilidade);
 
 async function verificarEntrada(frutaInformada) {
     const regexFruta = /^[a-zA-ZÀ-ÿ\s]+$/;
-    while (!regexFruta.test(frutaInformada) || frutaInformada.trim() === '') {
-        frutaInformada = (await prompt('Entrada inválida. Digite apenas o nome de uma fruta que esteja na lista: ')).toLowerCase();
-    }
-    return frutaInformada;
-}
+    let novaFrutaInformada = frutaInformada;
+    while (!regexFruta.test(novaFrutaInformada) || novaFrutaInformada.trim() === '') {
+        novaFrutaInformada = (await prompt('Entrada inválida. Digite apenas o nome de uma fruta que esteja na lista: ')).toLowerCase();
+    };
+    return novaFrutaInformada;
+};
 
 function verificarListaDeFrutas(frutaInformada, frutas, frutasCompativeis) {
     if (!frutas.includes(frutaInformada)) {
         return `A fruta ${frutaInformada} não está na lista de frutas disponíveis.`;
-    }
+    };
     if (frutasCompativeis.includes(frutaInformada)) {
         return `A fruta ${frutaInformada} é compatível com a receita de suco.`;
-    }
+    };
     return `A fruta ${frutaInformada} não é compatível com a receita de suco.`;
-}
+};

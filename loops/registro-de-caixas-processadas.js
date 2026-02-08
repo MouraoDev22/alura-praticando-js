@@ -13,7 +13,7 @@ function processarCaixas(caixas) {
         if (caixas[i] < 0) {
             console.log('Caixa danificada, ignorada.');
             continue;
-        }
+        };
         
         console.log(`Caixa processada: ${caixas[i]}`);
         caixasProcessadas++;
@@ -22,6 +22,6 @@ function processarCaixas(caixas) {
             console.log('Limite de caixas processadas atingido.');
             caixasProcessadas = 0;
             break;
-        }
-    }
-}
+        };
+    };
+};

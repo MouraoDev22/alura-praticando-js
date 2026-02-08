@@ -16,20 +16,20 @@ async function inserirNomes() {
         let nome = await prompt('Digite um nome:');
         while (!regex.test(nome)) {
             nome = await prompt('Entrada inválida. Por favor, digite um nome válido:');
-        }
+        };
         listaDeNomes.push(nome);
-    }
+    };
     const nomeFinal = listaDeNomes[6];
 
     listaDeNomes.push(nomeFinal);
     listaDeNomes[7] = palavraFim;
-}
+};
 
 function listarNomes(nomes) {
     for (let i = 0; i < nomes.length; i++) {
         if (nomes[i] === 'fim') {
             break;
-        }
+        };
         console.log(nomes[i]);
-    }
-}
+    };
+};

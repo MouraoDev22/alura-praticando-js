@@ -4,10 +4,10 @@
 
 import prompt from 'nprompt';
 
-let nota1 = Number(await prompt('Digite a primeira nota:'))
+let nota1 = Number(await prompt('Digite a primeira nota:'));
 nota1 = await verificarEntrada(nota1);
 
-let nota2 = Number(await prompt('Digite a segunda nota:'))
+let nota2 = Number(await prompt('Digite a segunda nota:'));
 nota2 = await verificarEntrada(nota2);
 
 const calcularMedia = (nota1, nota2) => (nota1 + nota2) / 2;
@@ -16,9 +16,9 @@ const media = calcularMedia(nota1, nota2).toFixed(1);
 console.log(`A média das notas é: ${media}`);
 
 async function verificarEntrada(nota) {
-    let notaNova = nota;
-    while (isNaN(notaNova) || notaNova < 0 || notaNova> 10 || !notaNova) {
-       notaNova = Number(await prompt('Nota inválida. Por favor, digite uma nota válida:'));
+    let novaNota = nota;
+    while (isNaN(novaNota) || novaNota < 0 || novaNota > 10) {
+       novaNota = Number(await prompt('Nota inválida. Por favor, digite uma nota válida:'));
     };
-    return notaNova;
+    return novaNota;
 };

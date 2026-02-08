@@ -10,8 +10,10 @@
 
 //Crie um programa que calcule o total economizado ao final de 10 dias.
 
-let saldoInicial = Number(prompt("Digite o seu saldo: "));
-saldoInicial = verificarEntrada(saldoInicial);
+import prompt from 'nprompt';
+
+let saldoInicial = Number(await prompt('Digite o seu saldo: '));
+saldoInicial = await verificarEntrada(saldoInicial);
 
 const valorEconomizadoPorDia = 1;
 const numeroDeDias = 10;
@@ -23,16 +25,17 @@ console.log(`Saldo inicial: R$${saldoInicial.toFixed(2)}`);
 console.log(`Saldo final: R$${saldoFinal.toFixed(2)}`);
 console.log(`Valor economizado: R$${valorEconomizado.toFixed(2)} em ${numeroDeDias} dias.`);
 
-function verificarEntrada(saldoInicial) {
-    while (isNaN(saldoInicial) || saldoInicial <= 0) {
-        saldoInicial = Number(prompt("Entrada inválida. Por favor, digite um valor válido: "));
-    }
-    return saldoInicial;
-}
+async function verificarEntrada(saldoInicial) {
+    let novoSaldoInicial = saldoInicial;
+    while (isNaN(novoSaldoInicial) || novoSaldoInicial <= 0) {
+        novoSaldoInicial = Number(await prompt('Entrada inválida. Por favor, digite um valor válido: '));
+    };
+    return novoSaldoInicial;
+};
 
 function calcularSaldoFinal(saldoInicial, valorEconomizadoPorDia, numeroDeDias) {
     for (let i = 1; i <= numeroDeDias; i++) {
         saldoInicial += valorEconomizadoPorDia * i;
-    }
+    };
     return saldoInicial;
-}
+};

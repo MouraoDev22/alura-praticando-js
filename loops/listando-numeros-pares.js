@@ -12,18 +12,19 @@ const mensagemDeFinalizacao = listarNumerosPares(numero);
 console.log(mensagemDeFinalizacao);
 
 async function verificarEntrada(numero) {
-    while (isNaN(numero) || numero <= 0) {
-        numero = Number(await prompt('Entrada inválida. Por favor, digite um número válido: '));
-    }
-    return numero;
-}
+    let novoNumero = numero;
+    while (isNaN(novoNumero) || novoNumero <= 0) {
+        novoNumero = Number(await prompt('Entrada inválida. Por favor, digite um número válido: '));
+    };
+    return novoNumero;
+};
 
 function listarNumerosPares(numero) {
     for (let i = 1; i <= numero; i++) {
         if (i % 2 === 0) {
             console.log(i);
             contador++;
-        }
-    }
+        };
+    };
     return `Total de números pares listados até ${numero}: ${contador}.`;
-}
+};

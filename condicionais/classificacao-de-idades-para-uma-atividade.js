@@ -6,27 +6,30 @@
 
 // Crie um programa que, dado o valor da idade, classifique a pessoa na categoria correspondente.
 
-let idade = Number(prompt("Digite uma idade: "));
-idade = verificarSeEhNumero(idade);
+import prompt from 'nprompt';
+
+let idade = Number(await prompt('Digite uma idade: '));
+idade = await verificarEntrada(idade);
 
 const resultado = classificarIdade(idade);
 console.log(resultado);
 
-function verificarSeEhNumero(idade) {
-    while (isNaN(idade) || idade < 0) {
-        idade = Number(prompt("Idade inválida. Por favor, digite uma idade válida: "));
-    }
-    return idade;
-}
+async function verificarEntrada(idade) {
+    let novaIdade = idade;
+    while (isNaN(novaIdade) || novaIdade <= 0) {
+        novaIdade = Number(await prompt('Idade inválida. Por favor, digite uma idade válida: '));
+    };
+    return novaIdade;
+};
 
 function classificarIdade(idade) {
     if (idade < 12) {
-        return "Essa pessoa está na categoria: Infantil";
+        return 'Essa pessoa está na categoria: Infantil';
     } else if (idade >= 12 && idade < 18) {
-        return "Essa pessoa está na categoria: Juvenil";
+        return 'Essa pessoa está na categoria: Juvenil';
     } else if (idade >= 18 && idade < 60) {
-        return "Essa pessoa está na categoria: Adulto";
+        return 'Essa pessoa está na categoria: Adulto';
     } else {
-        return "Essa pessoa está na categoria: Idoso";
-    }
-}
+        return 'Essa pessoa está na categoria: Idoso';
+    };
+};

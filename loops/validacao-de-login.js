@@ -2,26 +2,28 @@
 
 // Seu desafio é escolher o laço de repetição mais adequado para resolver este problema.
 
-const tentativas = ["1234", "admin", "secreto", "senha", "12345"];
-const senhaCorreta = "secreto";
+import prompt from 'nprompt';
+
+const tentativas = ['1234', 'admin', 'secreto', 'senha', '12345'];
+const senhaCorreta = 'secreto';
 let tentativasRestantes = 3;
 
-let senhaInformada = prompt(`Digite sua senha, dentre as opções: "1234", "admin", "secreto", "senha", "12345", você tem ${tentativasRestantes} tentativas:`);
-verificarSenha(senhaInformada);
+let senhaInformada = await prompt(`Digite sua senha, dentre as opções: '1234', 'admin', 'secreto', 'senha', '12345', você tem ${tentativasRestantes} tentativas:`);
+await verificarSenha(senhaInformada);
 
-function verificarSenha(senhaInformada) {
+async function verificarSenha(senhaInformada) {
     if (senhaInformada === senhaCorreta) {
-        console.log("Acesso permitido.");
+        console.log('Acesso permitido.');
         return;
     } else {
         for (let i = 0; i < tentativasRestantes; i++) {
             tentativasRestantes--;
-            senhaInformada = prompt(`Senha incorreta. Tente novamente, você tem ${tentativasRestantes} tentativas:`);
+            senhaInformada = await prompt(`Senha incorreta. Tente novamente, você tem ${tentativasRestantes} tentativas:`);
             if (senhaInformada === senhaCorreta) {
-                console.log("Acesso permitido.");
+                console.log('Acesso permitido.');
                 return;
             }
         }
         console.log('Acesso bloqueado.');
-    }
-}
+    };
+};

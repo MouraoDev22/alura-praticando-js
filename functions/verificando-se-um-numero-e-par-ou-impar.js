@@ -22,7 +22,7 @@ verificarParidade(numero);
 
 async function verificarEntrada(numero) {
     let novoNumero = numero;
-    while (isNaN(novoNumero) || novoNumero <= 0) {
+    while (isNaN(novoNumero)) {
         novoNumero = Number(await prompt('Entrada inválida. Por favor, digite um número válido:'));
     };
     return novoNumero;

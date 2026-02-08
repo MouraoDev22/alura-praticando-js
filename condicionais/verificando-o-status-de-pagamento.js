@@ -6,35 +6,38 @@
 
 // Use o switch/case para criar um programa que faça essa verificação e mostre a mensagem correspondente ao status do pagamento.
 
-const comprasPendentes = ["compra01", "compra02", "compra03"];
-const comprasAprovadas = ["compra04", "compra05"];
-const comprasRecusadas = ["compra06", "compra07"];
+import prompt from 'nprompt';
 
-let promptResposta = prompt("Qual compra deseja verificar? (compra[número] ex: compra01): ").toLowerCase();
-promptResposta = verificarEntrada(promptResposta);
+const comprasPendentes = ['compra01', 'compra02', 'compra03'];
+const comprasAprovadas = ['compra04', 'compra05'];
+const comprasRecusadas = ['compra06', 'compra07'];
+
+let promptResposta = (await prompt('Qual compra deseja verificar? (compra[número] ex: compra01): ')).toLowerCase();
+promptResposta = await verificarEntrada(promptResposta);
 
 const resultado = verificarStatusPagamento(promptResposta);
 console.log(resultado);
 
-function verificarEntrada(promptResposta) {
-    while (!comprasPendentes.includes(promptResposta) && !comprasAprovadas.includes(promptResposta) && !comprasRecusadas.includes(promptResposta)) {
-        promptResposta = prompt("Compra inválida. Qual compra deseja verificar? (compra[número] ex: compra01): ").toLowerCase();
+async function verificarEntrada(promptResposta) {
+    let novaResposta = promptResposta;
+    while (!comprasPendentes.includes(novaResposta) && !comprasAprovadas.includes(novaResposta) && !comprasRecusadas.includes(novaResposta)) {
+        novaResposta = (await prompt('Compra inválida. Qual compra deseja verificar? (compra[número] ex: compra01): ')).toLowerCase();
     }
-    return promptResposta;
+    return novaResposta;
 }
 
 function verificarStatusPagamento(compra) {
     switch (true) {
         case comprasPendentes.includes(compra):
-            return "Pagamento pendente.";
+            return 'Pagamento pendente.';
             break;
         case comprasAprovadas.includes(compra):
-            return "Pagamento aprovado.";
+            return 'Pagamento aprovado.';
             break;
         case comprasRecusadas.includes(compra):
-            return "Pagamento recusado.";
+            return 'Pagamento recusado.';
             break;
         default:
-            return "Status de pagamento inválido.";
-    }
-}
+            return 'Status de pagamento inválido.';
+    };
+};

@@ -11,9 +11,9 @@ function iniciarContagem() {
                 console.log('Alerta: Número 10 alcançado. Contagem interrompida.');
             }, 9 * 1000);
             break;
-        }
+        };
         setTimeout(() => {
             console.log(i);
         }, (i - 1) * 1000);
-    }
-}
+    };
+};

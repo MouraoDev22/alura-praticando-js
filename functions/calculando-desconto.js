@@ -19,9 +19,9 @@ function calcularDesconto(preco, desconto) {
 };
 
 async function verificarEntrada(valor) {
-    let novoValorDaCompra = valor;
-    while (isNaN(novoValorDaCompra) || novoValorDaCompra <= 0) {
-        novoValorDaCompra = Number(await prompt('Entrada inválida. Por favor, digite um valor válido:'));
+    let novoValor = valor;
+    while (isNaN(novoValor) || novoValor <= 0) {
+        novoValor = Number(await prompt('Entrada inválida. Por favor, digite um valor válido:'));
     };
-    return novoValorDaCompra;
+    return novoValor;
 };

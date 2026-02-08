@@ -11,25 +11,26 @@ const pontosMinimos = 50;
 const vidasMinimas = 1;
 
 let pontos = Number(await prompt('Digite a quantidade de pontos do personagem: '));
-pontos = await verificarSeEhNumero(pontos);
+pontos = await verificarEntrada(pontos);
 
 let vidas = Number(await prompt('Digite a quantidade de vidas do personagem: '));
-vidas = await verificarSeEhNumero(vidas);
+vidas = await verificarEntrada(vidas);
 
 const resultado = verificarStatus(pontos, vidas, pontosMinimos, vidasMinimas);
 console.log(resultado);
 
-async function verificarSeEhNumero(valor) {
-    while (isNaN(valor) || valor < 0) {
-        valor = Number(await prompt('Entrada inválida. Por favor, digite um número válido: '));
-    }
-    return valor;
-}
+async function verificarEntrada(valor) {
+    let novoValor = valor;
+    while (isNaN(novoValor) || novoValor <= 0) {
+        novoValor = Number(await prompt('Entrada inválida. Por favor, digite um número válido: '));
+    };
+    return novoValor;
+};
 
 function verificarStatus(pontos, vidas, pontosMinimos, vidasMinimas) {
     if (pontos > pontosMinimos && vidas >= vidasMinimas) {
         return 'O personagem pode avançar para o próximo nível.';
     } else {
         return 'O personagem não pode avançar para o próximo nível.';
-    }
-}
+    };
+};

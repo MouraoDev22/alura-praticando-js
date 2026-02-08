@@ -15,23 +15,26 @@
 // Se for sábado (6) ou domingo (0), a loja estará aberta em horário especial.
 // Nos outros dias, a loja estará aberta no horário normal.
 
-const dias = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+import prompt from 'nprompt';
 
-let diaDaSemana = Number(prompt("Digite o dia da semana (0 para Domingo, 1 para Segunda-feira, ..., 6 para Sábado): "));
-diaDaSemana = verificarSeEhNumero(diaDaSemana);
+const dias = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+
+let diaDaSemana = Number(await prompt('Digite o dia da semana (0 para Domingo, 1 para Segunda-feira, ..., 6 para Sábado): '));
+diaDaSemana = await verificarEntrada(diaDaSemana);
 
 const resultado = verificarHorarioFuncionamento(diaDaSemana, dias);
 console.log(resultado);
 
-function verificarSeEhNumero(diaDaSemana) {
-    while (isNaN(diaDaSemana) || diaDaSemana < 0 || diaDaSemana > 6) {
-        diaDaSemana = Number(prompt("Dia da semana inválido. Por favor, digite um dia da semana válido: "));
-    }
-    return diaDaSemana;
-}
+async function verificarEntrada(diaDaSemana) {
+    let novoDiaDaSemana = diaDaSemana;
+    while (isNaN(novoDiaDaSemana) || novoDiaDaSemana < 0 || novoDiaDaSemana > 6) {
+        novoDiaDaSemana = Number(await prompt('Dia da semana inválido. Por favor, digite um dia da semana válido: '));
+    };
+    return novoDiaDaSemana;
+};
 
 function verificarHorarioFuncionamento(diaDaSemana, dias) {
     return (dias[0] === dias[diaDaSemana] || dias[6] === dias[diaDaSemana]) 
     ? `Hoje é ${dias[diaDaSemana]}. A loja está aberta em horário especial, das 10h às 14h.` 
     : `Hoje é ${dias[diaDaSemana]}. A loja está aberta no horário normal, das 9h às 18h.`;
-}
+};

@@ -23,9 +23,9 @@ function iniciarContagem(tempoMinimo, temperaturaIdealAlcancadaEm) {
             setTimeout(() => {
                 console.log(`Tempo total de aquecimento: ${tempoMinimo} segundos.`);
             }, (tempoMinimo + 0.5) * 1000);
-        }
+        };
         setTimeout(() => {
             console.log(`Aquecendo... segundo ${i}`);
         }, i * 1000);
-    }
-}
+    };
+};

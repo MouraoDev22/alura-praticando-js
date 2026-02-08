@@ -11,15 +11,16 @@ const mensagemDeFinalizacao = gerarContagem(numeroFinal);
 console.log(mensagemDeFinalizacao);
 
 async function verificarEntrada(numeroFinal) {
-    while (isNaN(numeroFinal) || numeroFinal <= 0) {
-        numeroFinal = Number(await prompt('Entrada inválida. Por favor, digite um número válido: '));
-    }
-    return numeroFinal;
-}
+    let novoNumeroFinal = numeroFinal;
+    while (isNaN(novoNumeroFinal) || novoNumeroFinal <= 0) {
+        novoNumeroFinal = Number(await prompt('Entrada inválida. Por favor, digite um número válido: '));
+    };
+    return novoNumeroFinal;
+};
 
 function gerarContagem(numeroFinal) {
     for (let contador = 0; contador <= numeroFinal; contador++) {
         console.log(contador);
-    }
+    };
     return 'Contagem finalizada.';
-}
+};

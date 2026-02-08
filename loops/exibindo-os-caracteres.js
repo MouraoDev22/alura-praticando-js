@@ -11,15 +11,16 @@ senha = await verificarEntrada(senha);
 exibirCaracteresDaSenha(senha);
 
 async function verificarEntrada(senha) {
-    while (senha.length === 0 || !regex.test(senha)) {
-        senha = await prompt('Entrada inválida. Por favor, digite uma senha válida, com pelo menos 8 caracteres, incluindo letras e números: ');
-    }
-    return senha;
-}
+    let novaSenha = senha;
+    while (novaSenha.length === 0 || !regex.test(novaSenha)) {
+        novaSenha = await prompt('Entrada inválida. Por favor, digite uma senha válida, com pelo menos 8 caracteres, incluindo letras e números: ');
+    };
+    return novaSenha;
+};
 
 function exibirCaracteresDaSenha(senha) {
     console.log('Caracteres da senha digitada:');
     for (let i = 0; i < senha.length; i++) {
         console.log(`Caractere ${i + 1}: ${senha[i]}`);
-    }
-}
+    };
+};

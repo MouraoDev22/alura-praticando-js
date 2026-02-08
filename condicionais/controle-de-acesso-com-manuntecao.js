@@ -2,21 +2,24 @@
 
 // Crie um programa que, com base na variável carrinhoVazio (booleana), verifique se a compra pode ser finalizada. Se o carrinho não estiver vazio, mostre: "Compra finalizada com sucesso!". Caso contrário, exiba: "Não é possível finalizar a compra: carrinho vazio."
 
-let promptResposta = prompt("O carrinho está vazio? (1 para sim / 0 para não): ").toLowerCase();
-const carrinhoVazio = verificarEntrada(promptResposta);
+import prompt from 'nprompt';
+
+let promptResposta = (await prompt('O carrinho está vazio? (1 para sim / 0 para não): ')).toLowerCase();
+const carrinhoVazio = await verificarEntrada(promptResposta);
 
 const resultado = verificarCarrinho(carrinhoVazio);
 console.log(resultado);
 
-function verificarEntrada(promptResposta) {
-    while (promptResposta !== "1" && promptResposta !== "0") {
-        promptResposta = prompt("Entrada inválida. O carrinho está vazio? (1 para sim / 0 para não): ").toLowerCase();
-    }
-    return promptResposta === "1";
-}
+async function verificarEntrada(promptResposta) {
+    let novaResposta = promptResposta;
+    while (novaResposta !== '1' && novaResposta !== '0') {
+        novaResposta = (await prompt('Entrada inválida. O carrinho está vazio? (1 para sim / 0 para não): ')).toLowerCase();
+    };
+    return novaResposta === '1';
+};
 
 function verificarCarrinho(carrinhoVazio) {
     return carrinhoVazio 
-    ? "Não é possível finalizar a compra: carrinho vazio." 
-    : "Compra finalizada com sucesso!";
-}
+    ? 'Não é possível finalizar a compra: carrinho vazio.' 
+    : 'Compra finalizada com sucesso!';
+};

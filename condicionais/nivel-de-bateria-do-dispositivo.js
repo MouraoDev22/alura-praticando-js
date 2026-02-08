@@ -6,18 +6,21 @@
 
 // Utilize o operador ternário para definir e exibir a categoria da bateria com base no valor da variável bateria.
 
-let bateria = Math.floor(Number(prompt("Digite a porcentagem de carga da bateria: ")));
-bateria = verificarSeEhNumero(bateria);
+import prompt from 'nprompt';
+
+let bateria = Math.floor(Number(await prompt('Digite a porcentagem de carga da bateria: ')));
+bateria = await verificarEntrada(bateria);
 
 const resultado = verificarBateria(bateria);
 console.log(resultado);
 
-function verificarSeEhNumero(bateria) {
-    while (isNaN(bateria) || bateria < 0 || bateria > 100) {
-        bateria = Number(prompt("Entrada inválida. Por favor, digite uma porcentagem válida (0-100): "));
-    }
-    return bateria;
-}
+async function verificarEntrada(bateria) {
+    let novaBateria = bateria;
+    while (isNaN(novaBateria) || novaBateria < 0 || novaBateria > 100) {
+        novaBateria = Number(await prompt('Entrada inválida. Por favor, digite uma porcentagem válida (0-100): '));
+    };
+    return novaBateria;
+};
 
 function verificarBateria(bateria) {
     return bateria < 20 
@@ -25,4 +28,4 @@ function verificarBateria(bateria) {
     : bateria <= 80 
     ? `${bateria}% - Carga da bateria moderada.` 
     : `${bateria}% - Carga da bateria cheia.`;
-}
+};

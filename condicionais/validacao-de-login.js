@@ -2,11 +2,13 @@
 
 // Crie um programa utilizando o operador ternário que realize essa verificação e exiba a mensagem correspondente.
 
-const usuariosValidos = ["admin", "gestor", "editor"];
-const usuario = prompt("Digite o nome de usuário: ");
+import prompt from 'nprompt';
+
+const usuariosValidos = ['admin', 'gestor', 'editor'];
+const usuario = await prompt('Digite o nome de usuário: ');
 const mensagem = verificarLogin(usuario, usuariosValidos);
 console.log(mensagem);
 
 function verificarLogin(usuario, usuariosValidos) {
-    return usuariosValidos.includes(usuario) ? "Login bem-sucedido!" : "Usuário inválido.";
-}
+    return usuariosValidos.includes(usuario) ? 'Login bem-sucedido!' : 'Usuário inválido.';
+};
