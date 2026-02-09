@@ -2,7 +2,7 @@
 
 // Crie um programa utilizando o operador ternário que realize essa verificação e exiba a mensagem correspondente.
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 const usuariosValidos = ['admin', 'gestor', 'editor'];
 const usuario = await prompt('Digite o nome de usuário: ');

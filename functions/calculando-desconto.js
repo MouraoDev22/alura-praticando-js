@@ -5,7 +5,7 @@
 // . o preço original do produto,
 // . a porcentagem de desconto (com um valor padrão de 10%).
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 const valorDoDesconto = 10;
 let valorDaCompra = Number(await prompt('Digite o valor da sua compra:'));

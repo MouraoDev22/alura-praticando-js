@@ -2,7 +2,7 @@
 
 // Como você pode gerar essa contagem e garantir que cada número seja mostrado até atingir o valor final fornecido?
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 let numeroFinal = Number(await prompt('Digite um número final para a contagem:'));
 numeroFinal = await verificarEntrada(numeroFinal);

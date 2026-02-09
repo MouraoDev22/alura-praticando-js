@@ -2,7 +2,7 @@
 
 // Crie um programa que exiba todos os números pares de 1 até o número final fornecido pelo usuário.
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 let contador = 0;
 let numero = Number(await prompt('Digite um número para listar os números pares até ele:'));

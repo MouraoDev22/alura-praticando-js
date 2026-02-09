@@ -1,4 +1,4 @@
-import readline from "readline";
+import readline from 'readline';
 
 export default function prompt(question) {
   const rl = readline.createInterface({
@@ -7,7 +7,7 @@ export default function prompt(question) {
   });
 
   return new Promise((resolve) => {
-    rl.question(question + " ", (answer) => {
+    rl.question(question + ' ', (answer) => {
       rl.close();
       resolve(answer);
     });

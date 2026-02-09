@@ -2,7 +2,7 @@
 
 // Seu desafio é escolher o laço de repetição mais adequado para resolver este problema.
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 const tentativas = ['1234', 'admin', 'secreto', 'senha', '12345'];
 const senhaCorreta = 'secreto';

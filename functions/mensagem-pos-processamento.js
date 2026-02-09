@@ -6,7 +6,7 @@
 // . o tipo do cliente (vip, novo ou comum),
 // . e uma função de callback responsável por exibir uma mensagem após o pedido ser processado.
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 const regex = /^[A-Za-zÀ-ú\s]+$/;
 let nome = await prompt('Qual é o seu nome?');

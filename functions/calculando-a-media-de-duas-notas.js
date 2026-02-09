@@ -2,7 +2,7 @@
 
 // Sua tarefa é criar uma arrow function chamada calcularMedia que receba duas notas e retorne a média entre elas.
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 let nota1 = Number(await prompt('Digite a primeira nota:'));
 nota1 = await verificarEntrada(nota1);

@@ -5,7 +5,7 @@
 
 // Crie um programa que, dado o nome da fruta, verifique se ela é compatível com a receita.
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 const frutas = ['laranja', 'abacaxi', 'morango', 'banana', 'uva', 'mamão', 'manga', 'pera', 'goiaba', 'kiwi'];
 const frutasCompativeis = ['laranja', 'abacaxi'];

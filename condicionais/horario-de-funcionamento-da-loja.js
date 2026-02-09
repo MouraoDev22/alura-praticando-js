@@ -15,7 +15,7 @@
 // Se for sábado (6) ou domingo (0), a loja estará aberta em horário especial.
 // Nos outros dias, a loja estará aberta no horário normal.
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 const dias = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
 

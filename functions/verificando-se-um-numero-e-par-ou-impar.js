@@ -5,7 +5,7 @@
 // "Par" se o número for par
 // "Ímpar" se for ímpar
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 let numero = Number(await prompt('Digite um número:'));
 numero = await verificarEntrada(numero);

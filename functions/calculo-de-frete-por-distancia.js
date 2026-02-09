@@ -6,7 +6,7 @@
 
 // Seu desafio é escolher o tipo de função mais adequado para resolver este problema. Função tradicional? Arrow Function? E aí? Como vai implementar esse desafio?
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 let distancia = Number(await prompt('Digite a distância em km:'));
 distancia = await verificarEntrada(distancia);

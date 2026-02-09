@@ -6,7 +6,7 @@
 
 // Crie um programa que, dado o valor da idade, classifique a pessoa na categoria correspondente.
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 let idade = Number(await prompt('Digite uma idade: '));
 idade = await verificarEntrada(idade);

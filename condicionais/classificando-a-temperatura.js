@@ -6,7 +6,7 @@
 
 //Escreva um programa que, dado um valor de temperatura e imprima a mensagem correspondente.
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 let temperatura = Number(await prompt('Digite a temperatura do dia de hoje: '));
 temperatura = await verificarEntrada(temperatura);

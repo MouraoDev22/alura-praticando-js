@@ -6,7 +6,7 @@
 
 // Utilize o operador ternário para definir e exibir a categoria da bateria com base no valor da variável bateria.
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 let bateria = Math.floor(Number(await prompt('Digite a porcentagem de carga da bateria: ')));
 bateria = await verificarEntrada(bateria);

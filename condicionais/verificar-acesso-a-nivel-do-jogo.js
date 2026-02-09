@@ -5,7 +5,7 @@
 
 // Crie um programa que, dado os pontos e as vidas restantes, verifique se o personagem pode ou não avançar para o próximo nível.
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 const pontosMinimos = 50;
 const vidasMinimas = 1;

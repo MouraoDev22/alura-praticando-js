@@ -2,7 +2,7 @@
 
 // Crie um programa que com base em uma entrada pré-definida de nomes, exiba cada um deles, e encerre somente quando encontrar o valor "fim".
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 let listaDeNomes = [];
 const regex = /^[A-Za-zÀ-ú\s]+$/;

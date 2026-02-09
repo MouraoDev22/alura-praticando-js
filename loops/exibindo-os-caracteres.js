@@ -2,7 +2,7 @@
 
 // Como você pode percorrer e exibir todos os caracteres de uma senha digitada, um por um?
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 let senha = await prompt('Digite sua senha:');

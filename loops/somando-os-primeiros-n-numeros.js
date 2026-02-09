@@ -10,7 +10,7 @@
 
 //Crie um programa que calcule o total economizado ao final de 10 dias.
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 let saldoInicial = Number(await prompt('Digite o seu saldo: '));
 saldoInicial = await verificarEntrada(saldoInicial);

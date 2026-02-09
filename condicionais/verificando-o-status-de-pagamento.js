@@ -6,7 +6,7 @@
 
 // Use o switch/case para criar um programa que faça essa verificação e mostre a mensagem correspondente ao status do pagamento.
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 const comprasPendentes = ['compra01', 'compra02', 'compra03'];
 const comprasAprovadas = ['compra04', 'compra05'];

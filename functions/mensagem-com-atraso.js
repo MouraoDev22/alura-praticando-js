@@ -5,7 +5,7 @@
 // . o nome do usuário, e
 // . uma função de callback que será executada após 3 segundos.
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 const regex = /^[A-Za-zÀ-ú\s]+$/;
 let nome = await prompt('Qual é o seu nome?');

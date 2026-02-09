@@ -9,7 +9,7 @@
 // . a pontuação final do jogador
 // . uma função de callback que será usada para exibir uma mensagem personalizada com base no resultado da avaliação.
 
-import prompt from 'nprompt';
+import prompt from 'awt-prompt';
 
 let pontos = Number(await prompt('Digite sua pontuação(de 0 a 100):'));
 pontos = await verificarEntrada(pontos);
