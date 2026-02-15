@@ -1,3 +1,11 @@
+// Imagine que você está desenvolvendo um sistema para controlar uma lista de compras. O primeiro passo é permitir que a pessoa usuária acesse e altere os itens dessa lista.
+
+// Escreva um programa que:
+
+// . Crie um array com os itens iniciais da lista de compras.
+// . Acesse e exiba o segundo item da lista.
+// . Modifique o último item da lista para um novo valor.
+
 import prompt from 'awt-prompt';
 
 const listaDeCompras = [ 
@@ -21,9 +29,14 @@ async function exibirLista(lista) {
     });
     let resposta = await prompt('\nDeseja acessar algum item específico? (s/n)');
     resposta = resposta.toLowerCase();
-    resposta === 's' ? acessarItem(lista) 
-    : resposta === 'n' ? console.log('\nObrigado por usar a lista de compras!')
-    : console.log('Resposta inválida. Por favor, responda com "s" ou "n".') || exibirLista(lista);
+    if (resposta === 's') {
+        return await acessarItem(lista);
+    } else if (resposta === 'n') {
+        console.log('\nObrigado por usar a lista de compras!');
+    } else {
+        console.log('Resposta inválida. Por favor, responda com "s" ou "n".');
+        return await exibirLista(lista);
+    };
 };
 
 async function acessarItem(lista) {
@@ -32,12 +45,18 @@ async function acessarItem(lista) {
         console.log(`\nItem selecionado: ${lista[index].nome} - ${lista[index].quantidade} ${lista[index].unidade}`);
         let resposta = await prompt('\nDeseja modificar alguma coisa nesse item? (s/n)');
         resposta = resposta.toLowerCase();
-        resposta === 's' ? modificarItem(lista, index)
-        : resposta === 'n' ? console.log('\nVoltando para a lista de compras...') || exibirLista(lista)
-        : console.log('Resposta inválida. Por favor, responda com "s" ou "n".') || acessarItem(lista);
+        if (resposta === 's') {
+            return await modificarItem(lista, index);
+        } else if (resposta === 'n') {
+            console.log('\nVoltando para a lista de compras...');
+            return await exibirLista(lista);
+        } else {
+            console.log('Resposta inválida. Por favor, responda com "s" ou "n".');
+            return await acessarItem(lista);
+        };
     } else {
         console.log('\nÍndice inválido. Por favor, escolha um número válido.');
-        acessarItem(lista);
+        return await acessarItem(lista);
     };
 };
 
@@ -47,8 +66,7 @@ async function modificarItem(lista, index) {
     let resposta = Number(await prompt('\nO que você gostaria de modificar?\nDigite o número da opção desejada:'));
     if (isNaN(resposta) || resposta < 1 || resposta > 3) {
         console.log('\nOpção inválida. Por favor, escolha uma opção válida.');
-        modificarItem(lista, index);
-        return;
+        return await modificarItem(lista, index);
     };
     switch (resposta) {
         case 1:
@@ -68,12 +86,12 @@ async function modificarItem(lista, index) {
             console.log('\nOpção inválida. Por favor, escolha uma opção válida.');
             break;
     };
-    exibirLista(lista);
+    return await exibirLista(lista);
 };
 
 async function verificarEntrada(entrada) {
     let novoValor = entrada;
-    while (isNaN(novoValor) || novoValor <= 0) {
+    while (isNaN(novoValor) || novoValor < 1) {
         novoValor = Number(await prompt('\nEntrada inválida. Por favor, digite um número válido:'));
     };
     return novoValor;
