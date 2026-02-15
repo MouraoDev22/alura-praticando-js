@@ -6,5 +6,7 @@
 const estudantes = ['Carla', 'João', 'Marina', 'Lucas', 'Beatriz', 'Rafael', 'Fernanda', 'Gustavo', 'Ana', 'Pedro'];
 
 for (let estudante of estudantes) {
+    console.log('');
     console.log(`Estudante: ${estudante}`);
+    console.log('');
 };

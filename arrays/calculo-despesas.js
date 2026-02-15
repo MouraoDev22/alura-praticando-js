@@ -17,7 +17,7 @@ const despesas = [
 ];
 
 const totalDespesas = calcularDespesas(despesas);
-console.log(`Total de despesas: R$ ${totalDespesas.toFixed(2)}`);
+console.log(`\nTotal de despesas: R$ ${totalDespesas.toFixed(2)}\n`);
 
 function calcularDespesas(despesas) {
     let total = 0;
