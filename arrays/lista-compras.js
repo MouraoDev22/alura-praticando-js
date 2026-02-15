@@ -8,3 +8,73 @@ const listaDeCompras = [
     {nome: 'Ovos', quantidade: 12, unidade: 'unidades'}
 ];
 
+exibirLista(listaDeCompras);
+
+async function exibirLista(lista) {
+    if (lista.length === 0) {
+        console.log('\nA lista de compras está vazia.\nObrigado por usar a lista de compras!');
+        return;
+    };
+    console.log('\nLista de Compras:\n');
+    lista.forEach((item, index) => {
+        console.log(`${index + 1}. ${item.nome} - ${item.quantidade} ${item.unidade}`);
+    });
+    let resposta = await prompt('\nDeseja acessar algum item específico? (s/n)');
+    resposta = resposta.toLowerCase();
+    resposta === 's' ? acessarItem(lista) 
+    : resposta === 'n' ? console.log('\nObrigado por usar a lista de compras!')
+    : console.log('Resposta inválida. Por favor, responda com "s" ou "n".') || exibirLista(lista);
+};
+
+async function acessarItem(lista) {
+    const index = Number(await prompt('\nDigite o número do item que deseja acessar:')) - 1;
+    if (index >= 0 && index < lista.length) {
+        console.log(`\nItem selecionado: ${lista[index].nome} - ${lista[index].quantidade} ${lista[index].unidade}`);
+        let resposta = await prompt('\nDeseja modificar alguma coisa nesse item? (s/n)');
+        resposta = resposta.toLowerCase();
+        resposta === 's' ? modificarItem(lista, index)
+        : resposta === 'n' ? console.log('\nVoltando para a lista de compras...') || exibirLista(lista)
+        : console.log('Resposta inválida. Por favor, responda com "s" ou "n".') || acessarItem(lista);
+    } else {
+        console.log('\nÍndice inválido. Por favor, escolha um número válido.');
+        acessarItem(lista);
+    };
+};
+
+async function modificarItem(lista, index) {
+    console.log(`\nModificando item: ${lista[index].nome} - ${lista[index].quantidade} ${lista[index].unidade}`);
+    console.log('\n1. Quantidade\n2. Remover item\n3. Voltar para a lista');
+    let resposta = Number(await prompt('\nO que você gostaria de modificar?\nDigite o número da opção desejada:'));
+    if (isNaN(resposta) || resposta < 1 || resposta > 3) {
+        console.log('\nOpção inválida. Por favor, escolha uma opção válida.');
+        modificarItem(lista, index);
+        return;
+    };
+    switch (resposta) {
+        case 1:
+            let novaQuantidade = Number(await prompt('\nDigite a nova quantidade:'));
+            novaQuantidade = await verificarEntrada(novaQuantidade);
+            lista[index].quantidade = novaQuantidade;
+            console.log('\nQuantidade atualizada com sucesso!');
+            break;
+        case 2:
+            lista.splice(index, 1);
+            console.log('\nItem removido com sucesso!');
+            break;
+        case 3:
+            console.log('\nVoltando para a lista de compras...');
+            break;
+        default:
+            console.log('\nOpção inválida. Por favor, escolha uma opção válida.');
+            break;
+    };
+    exibirLista(lista);
+};
+
+async function verificarEntrada(entrada) {
+    let novoValor = entrada;
+    while (isNaN(novoValor) || novoValor <= 0) {
+        novoValor = Number(await prompt('\nEntrada inválida. Por favor, digite um número válido:'));
+    };
+    return novoValor;
+};
