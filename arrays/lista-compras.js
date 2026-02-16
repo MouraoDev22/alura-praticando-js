@@ -23,12 +23,16 @@ async function exibirLista(lista) {
         console.log('\nA lista de compras está vazia.\nObrigado por usar a lista de compras!');
         return;
     };
+    
     console.log('\nLista de Compras:\n');
+    
     lista.forEach((item, index) => {
         console.log(`${index + 1}. ${item.nome} - ${item.quantidade} ${item.unidade}`);
     });
+    
     let resposta = await prompt('\nDeseja acessar algum item específico? (s/n)');
     resposta = resposta.toLowerCase();
+    
     if (resposta === 's') {
         return acessarItem(lista);
     } else if (resposta === 'n') {
@@ -41,10 +45,13 @@ async function exibirLista(lista) {
 
 async function acessarItem(lista) {
     const index = Number(await prompt('\nDigite o número do item que deseja acessar:')) - 1;
+    
     if (index >= 0 && index < lista.length) {
         console.log(`\nItem selecionado: ${lista[index].nome} - ${lista[index].quantidade} ${lista[index].unidade}`);
+        
         let resposta = await prompt('\nDeseja modificar alguma coisa nesse item? (s/n)');
         resposta = resposta.toLowerCase();
+        
         if (resposta === 's') {
             return modificarItem(lista, index);
         } else if (resposta === 'n') {
@@ -64,10 +71,12 @@ async function modificarItem(lista, index) {
     console.log(`\nModificando item: ${lista[index].nome} - ${lista[index].quantidade} ${lista[index].unidade}`);
     console.log('\n1. Quantidade\n2. Remover item\n3. Voltar para a lista');
     let resposta = Number(await prompt('\nO que você gostaria de modificar?\nDigite o número da opção desejada:'));
+    
     if (isNaN(resposta) || resposta < 1 || resposta > 3) {
         console.log('\nOpção inválida. Por favor, escolha uma opção válida.');
         return modificarItem(lista, index);
     };
+    
     switch (resposta) {
         case 1:
             let novaQuantidade = Number(await prompt('\nDigite a nova quantidade:'));
