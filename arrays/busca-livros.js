@@ -11,34 +11,29 @@ async function buscarLivro(livros) {
     
     if (!regex.test(nomeDoLivro) || !nomeDoLivro.trim()) {
         console.log('\nEntrada inválida. Por favor, digite apenas letras, pontos, hífens, números e espaços.\n');
-        return await buscarLivro(livros);
+        return buscarLivro(livros);
     };
 
     for (const livro of livros) {
         if (livro.toLowerCase() === nomeDoLivro.toLowerCase()) {
             console.log(`\nLivro "${livro}" encontrado!\n`);
-            console.log('Deseja buscar outro livro? (s/n)\n');
-            let resposta = await prompt('> ');
-            resposta = resposta.trim().toLowerCase();
-
-            if (resposta === 's') {
-                return buscarLivro(livros);
-            } else {
-                console.log('\nPrograma encerrado.\n');
-                return;
-            };
+            return buscarOutroLivro(livros);
         };
     };
 
     console.log(`\nLivro "${nomeDoLivro}" não encontrado.\n`);
+    return buscarOutroLivro(livros);
+};
+
+async function buscarOutroLivro(livros) {
     console.log('Deseja buscar outro livro? (s/n)\n');
     let resposta = await prompt('> ');
-    resposta = resposta.toLowerCase();
-            
+    resposta = resposta.trim().toLowerCase();
+    
     if (resposta === 's') {
-         return await buscarLivro(livros);
+        return buscarLivro(livros);
     } else {
         console.log('\nPrograma encerrado.\n');
         return;
-    };    
+    };
 };

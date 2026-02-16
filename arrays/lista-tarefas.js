@@ -18,34 +18,38 @@ async function exibirTarefas(lista) {
         console.log('Deseja adicionar uma nova tarefa ou sair? (Digite "adicionar" ou "sair")\n');
         let acaoSeVazia = await prompt('> ');
         acaoSeVazia = acaoSeVazia.toLowerCase();
+        
         if (acaoSeVazia === 'adicionar') {
-            return await adicionarTarefa(lista);
+            return adicionarTarefa(lista);
         } else if (acaoSeVazia === 'sair') {
             console.log('\nPrograma encerrado.\n');
             return;
         } else {
             console.log('\nOpção inválida. Por favor, digite "adicionar" ou "sair".');
-            return await exibirTarefas(lista);
+            return exibirTarefas(lista);
         };
     };
+    
     console.log('\nSua lista de tarefas:\n');
     lista.forEach((tarefa, index) => {
         console.log(`${index + 1}. ${tarefa}`);
     });
+    
     console.log('\nDeseja adicionar uma nova tarefa, remover a última ou sair? (Digite "adicionar", "remover" ou "sair")\n');
     let acao = await prompt('> ');
     acao = acao.toLowerCase();
+    
     switch (acao) {
         case 'adicionar':
-            return await adicionarTarefa(lista);
+            return adicionarTarefa(lista);
         case 'remover':
-            return await removerTarefa(lista);
+            return removerTarefa(lista);
         case 'sair':
             console.log('\nPrograma encerrado.\n');
             return;
         default:
             console.log('\nOpção inválida. Por favor, digite "adicionar", "remover" ou "sair".');
-            return await exibirTarefas(lista);
+            return exibirTarefas(lista);
     };
 };
 
@@ -53,19 +57,20 @@ async function adicionarTarefa(lista) {
     console.log('\nDigite a nova tarefa que deseja adicionar:\n');
     let novaTarefa = await prompt('> ');
     novaTarefa = await verificarEntrada(novaTarefa);
+    
     lista.push(novaTarefa);
     console.log(`\nTarefa "${novaTarefa}" adicionada com sucesso!`);
-    return await exibirTarefas(lista);
+    return exibirTarefas(lista);
 };
 
 async function removerTarefa(lista) {
     if (lista.length === 0) {
         console.log('\nSua lista de tarefas está vazia.\n');
-        return await exibirTarefas(lista);
+        return exibirTarefas(lista);
     } else {
         lista.pop();
         console.log('\nÚltima tarefa removida com sucesso!');
-        return await exibirTarefas(lista);
+        return exibirTarefas(lista);
     };
 };
 

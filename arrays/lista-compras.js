@@ -16,7 +16,7 @@ const listaDeCompras = [
     {nome: 'Ovos', quantidade: 12, unidade: 'unidades'}
 ];
 
-exibirLista(listaDeCompras);
+await exibirLista(listaDeCompras);
 
 async function exibirLista(lista) {
     if (lista.length === 0) {
@@ -30,12 +30,12 @@ async function exibirLista(lista) {
     let resposta = await prompt('\nDeseja acessar algum item específico? (s/n)');
     resposta = resposta.toLowerCase();
     if (resposta === 's') {
-        return await acessarItem(lista);
+        return acessarItem(lista);
     } else if (resposta === 'n') {
         console.log('\nObrigado por usar a lista de compras!');
     } else {
         console.log('Resposta inválida. Por favor, responda com "s" ou "n".');
-        return await exibirLista(lista);
+        return exibirLista(lista);
     };
 };
 
@@ -46,17 +46,17 @@ async function acessarItem(lista) {
         let resposta = await prompt('\nDeseja modificar alguma coisa nesse item? (s/n)');
         resposta = resposta.toLowerCase();
         if (resposta === 's') {
-            return await modificarItem(lista, index);
+            return modificarItem(lista, index);
         } else if (resposta === 'n') {
             console.log('\nVoltando para a lista de compras...');
-            return await exibirLista(lista);
+            return exibirLista(lista);
         } else {
             console.log('Resposta inválida. Por favor, responda com "s" ou "n".');
-            return await acessarItem(lista);
+            return acessarItem(lista);
         };
     } else {
         console.log('\nÍndice inválido. Por favor, escolha um número válido.');
-        return await acessarItem(lista);
+        return acessarItem(lista);
     };
 };
 
@@ -66,7 +66,7 @@ async function modificarItem(lista, index) {
     let resposta = Number(await prompt('\nO que você gostaria de modificar?\nDigite o número da opção desejada:'));
     if (isNaN(resposta) || resposta < 1 || resposta > 3) {
         console.log('\nOpção inválida. Por favor, escolha uma opção válida.');
-        return await modificarItem(lista, index);
+        return modificarItem(lista, index);
     };
     switch (resposta) {
         case 1:
@@ -86,7 +86,7 @@ async function modificarItem(lista, index) {
             console.log('\nOpção inválida. Por favor, escolha uma opção válida.');
             break;
     };
-    return await exibirLista(lista);
+    return exibirLista(lista);
 };
 
 async function verificarEntrada(entrada) {

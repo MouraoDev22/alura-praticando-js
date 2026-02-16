@@ -40,13 +40,13 @@ async function exibirPedidos(pedidos) {
     
     let resposta = await prompt('> ');
     if (resposta.toLowerCase() === 's') {
-        return await adicionarPedido(pedidos);
+        return adicionarPedido(pedidos);
     } else if (resposta.toLowerCase() === 'n') {
         console.log('\nPrograma encerrado.\n');
         return;
     } else {
         console.log('\nResposta inválida. Por favor, responda com "s" ou "n".');
-        return await exibirPedidos(pedidos);
+        return exibirPedidos(pedidos);
     };
 };
 
@@ -69,7 +69,7 @@ async function adicionarPedido(pedidos) {
     novaLista.push(novoPedido);
 
     console.log(`\nPedido adicionado com sucesso!`);
-    return await exibirPedidos(novaLista); 
+    return exibirPedidos(novaLista); 
 };
 
 async function verificarEntradaString(entrada) {
