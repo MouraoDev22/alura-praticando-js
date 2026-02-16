@@ -16,7 +16,7 @@ async function buscarLivro(livros) {
 
     for (const livro of livros) {
         if (livro.toLowerCase() === nomeDoLivro.toLowerCase()) {
-            console.log(`\nLivro "${livro}" encontrado!\n`);
+            console.log(`\nLivro "${livro}" está disponível!\n`);
             return buscarOutroLivro(livros);
         };
     };
