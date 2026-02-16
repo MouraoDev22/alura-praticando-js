@@ -37,8 +37,8 @@ async function exibirPedidos(pedidos) {
     });
     
     console.log('\nDeseja adicionar um novo pedido? (s/n)\n');
-    
     let resposta = await prompt('> ');
+    
     if (resposta.toLowerCase() === 's') {
         return adicionarPedido(pedidos);
     } else if (resposta.toLowerCase() === 'n') {
