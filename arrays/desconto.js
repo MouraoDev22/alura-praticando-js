@@ -8,7 +8,7 @@ const precos = [100, 80, 50, 120, 90];
 
 exibirPrecos(precos);
 
-function exibirPrecos(precos) {
+function exibirPrecos(precos, aplicarDesconto) {
     console.log('\nPreços originais:\n');
     precos.forEach((preco, index) => {
         console.log(`${index + 1}. R$${preco.toFixed(2)}`);
