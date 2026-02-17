@@ -26,7 +26,7 @@ function verificarAcesso(participantes, filtrarParticipantes, nomearParticipante
 };
 
 function filtrarParticipantes(participantes) {
-        return participantes.filter(participante => participante.idade >= 18);
+  return participantes.filter(participante => participante.idade >= 18);
 };
 
 function nomearParticipantes(participantes) {
