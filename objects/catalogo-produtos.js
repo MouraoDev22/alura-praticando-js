@@ -22,18 +22,20 @@ const produtosEletronicos = [
     } 
 ];
 
-exibirProduto(produtosEletronicos, 'Monitor', 'Teclado', 'Papa');
+exibirProduto(produtosEletronicos, 'Monitor', 'Teclado', 'Mouse', 'Tablet');
 
 function exibirProduto(produtos, ...nomesProdutos) {
-    console.log('\nCatálogo de Produtos:\n');
-    for (const produto of produtos) {
-        if (nomesProdutos.map(nome => nome.toLowerCase().replace(/\s/g, '')).includes(produto.nome.toLowerCase().replace(/\s/g, ''))) {
+    console.log('');
+    produtos.forEach((produto, index) => {
+       if (nomesProdutos.map(nome => nome.toLowerCase().replace(/\s/g, '')).includes(produto.nome.toLowerCase().replace(/\s/g, ''))) {
             console.log(`Nome: ${produto.nome}`);
             console.log(`Preço: ${produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`);
             console.log(`Disponível: ${produto.isDisponivel ? 'Sim' : 'Não'}`);
             console.log('');
         } else {
-            console.log(`Produto "${produto.nome}" não encontrado no catálogo.\n`);
-        };
-    };
+            const produtoNaoEncontrado = nomesProdutos[index];
+            console.log(`Produto "${produtoNaoEncontrado}" não encontrado.\n`);
+        }; 
+    });
+    return; 
 };
