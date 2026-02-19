@@ -18,4 +18,5 @@ function exibirIngrediente(receita, ...numIngrediente) {
         console.log(`Ingrediente complementar: ${receita.ingredientes[num - 1].nome[0].toUpperCase() + receita.ingredientes[num - 1].nome.slice(1)} - ${receita.ingredientes[num - 1].quantidade}`);
     };
     console.log('');
+    return;
 };

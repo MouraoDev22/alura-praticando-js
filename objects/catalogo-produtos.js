@@ -22,14 +22,16 @@ const produtos = [
     } 
 ];
 
-exibirProdutos(produtos);
+exibirProduto(produtos, 'Monitor');
 
-function exibirProdutos(produtos) {
+function exibirProduto(produtos, ...nomeProdutos) {
     console.log('\nCatálogo de Produtos:\n');
     for (const produto of produtos) {
-        console.log(`Nome: ${produto.nome}`);
-        console.log(`Preço: ${produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`);
-        console.log(`Disponível: ${produto.isDisponivel ? 'Sim' : 'Não'}`);
-        console.log('');
+        if (nomeProdutos.includes(produto.nome)) {
+            console.log(`Nome: ${produto.nome}`);
+            console.log(`Preço: ${produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`);
+            console.log(`Disponível: ${produto.isDisponivel ? 'Sim' : 'Não'}`);
+            console.log('');
+        };
     };
 };
