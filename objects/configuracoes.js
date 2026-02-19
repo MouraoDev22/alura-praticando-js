@@ -12,6 +12,19 @@ const configuracoes = {
     idioma: 'pt-BR',
     notificacoes: true,
     exibirConfig: function(...keys) {
+        if (keys.length === 0) {
+            keys = Object.keys(this);
+            console.log('');
+            for (const key of keys) {
+                if (typeof this[key] === 'function') continue;
+                if (this[key] === undefined) continue;
+                
+                console.log(`${key[0].toUpperCase() + key.slice(1)}: ${this[key.toLowerCase()]}`);
+            };
+            console.log('');
+            return;
+        };
+       
         console.log('');
         for (const key of keys) {
             if (this.hasOwnProperty(key.toLowerCase())) {
@@ -25,4 +38,4 @@ const configuracoes = {
     },
 };
 
-configuracoes.exibirConfig('tema', 'idioma');
+configuracoes.exibirConfig(configuracoes.exibirConfig);

@@ -40,9 +40,9 @@ const receitasDeBolo = [
     }
 ];
 
-exibirIngrediente(receitasDeBolo, 'Bolo de Chocolate', 3);
+exibirIngredientes(receitasDeBolo, 'Bolo de Chocolate', 3);
 
-function exibirIngrediente(tipoReceita, nomeReceita, ...numIngredientes) {
+function exibirIngredientes(tipoReceita, nomeReceita, ...numIngredientes) {
     for (const receita of tipoReceita) {
         if (receita.nome.toLowerCase().replace(/\s/g, '') === nomeReceita.toLowerCase().replace(/\s/g, '')) {
             const receitaEncontrada = { ...receita };

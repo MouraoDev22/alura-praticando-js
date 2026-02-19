@@ -16,26 +16,39 @@ const produtosEletronicos = [
         isDisponivel: true
     },
     {
-        nome: 'Mouse',
+        nome: 'Mouse e Teclado',
         preco: 50,
         isDisponivel: false
     } 
 ];
 
-exibirProduto(produtosEletronicos, 'Monitor', 'Teclado', 'Mouse', 'Tablet');
+exibirProdutos(produtosEletronicos);
 
-function exibirProduto(produtos, ...nomesProdutos) {
-    console.log('');
-    produtos.forEach((produto, index) => {
-       if (nomesProdutos.map(nome => nome.toLowerCase().replace(/\s/g, '')).includes(produto.nome.toLowerCase().replace(/\s/g, ''))) {
-            console.log(`Nome: ${produto.nome}`);
-            console.log(`Preço: ${produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`);
-            console.log(`Disponível: ${produto.isDisponivel ? 'Sim' : 'Não'}`);
-            console.log('');
-        } else {
-            const produtoNaoEncontrado = nomesProdutos[index];
-            console.log(`Produto "${produtoNaoEncontrado}" não encontrado.\n`);
-        }; 
-    });
-    return; 
+function exibirProdutos(produtos, ...nomesProdutos) {
+    const nomesProdutosFormatados = nomesProdutos.map(nome => nome.toLowerCase().replace(/\s/g, ''));
+    const produtosFiltrados = produtos.filter(produto => nomesProdutosFormatados.includes(produto.nome.toLowerCase().replace(/\s/g, '')));
+    const produtosNaoEncontrados = nomesProdutos.filter(nome => !produtosFiltrados.includes(nome.toLowerCase().replace(/\s/g, '')));
+    
+    if (produtosFiltrados.length > 0) {
+    for (const produto of produtosFiltrados) {
+        console.log('');
+        console.log(`Nome: ${produto.nome}`);
+        console.log(`Preço: ${produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`);
+        console.log(`Disponível: ${produto.isDisponivel ? 'Sim' : 'Não'}`);
+        console.log('');
+    }; 
+    } else {
+        console.log('\nNenhum produto encontrado.\n');
+        return;
+    };
+    produtosFiltrados.length === 0 ? console.log('\nNenhum produto encontrado.\n') : console.log('');
+    produtosNaoEncontrados.length > 0 ? exibirProdutosNaoEncontrados(produtosNaoEncontrados) : console.log('');
+    return
+};
+
+function exibirProdutosNaoEncontrados(produtosNaoEncontrados) {
+    for (const nomeProduto of produtosNaoEncontrados) {
+        console.log(`\nProduto "${nomeProduto}" não encontrado.\n`);
+    };
+    return;
 };
