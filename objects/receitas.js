@@ -44,7 +44,7 @@ exibirIngrediente(receitasDeBolo, 'Bolo de Chocolate', 3);
 
 function exibirIngrediente(tipoReceita, nomeReceita, ...numIngredientes) {
     for (const receita of tipoReceita) {
-        if (receita.nome === nomeReceita) {
+        if (receita.nome.toLowerCase().replace(/\s/g, '') === nomeReceita.toLowerCase().replace(/\s/g, '')) {
             const receitaEncontrada = { ...receita };
             
             console.log(`\nReceita: ${receitaEncontrada.nome}\n`);

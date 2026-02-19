@@ -23,7 +23,7 @@ removerModeloAntigo(carros, 'Civic');
 
 function removerModeloAntigo(carros, modeloAtual) {
     for (const carro of carros) {
-        if (carro.modelo === modeloAtual) {
+        if (carro.modelo.toLowerCase().replace(/\s/g, '') === modeloAtual.toLowerCase().replace(/\s/g, '')) {
             const nomeModeloAntigo = carro.modeloAntigo;
             
             delete carro.modeloAntigo;
@@ -33,4 +33,6 @@ function removerModeloAntigo(carros, modeloAtual) {
             return;
         };
     };
+    console.log(`\nModelo "${modeloAtual}" não encontrado.\n`);
+    return;
 };

@@ -14,8 +14,8 @@ const configuracoes = {
     exibirConfig: function(...keys) {
         console.log('');
         for (const key of keys) {
-            if (this.hasOwnProperty(key)) {
-                console.log(`${key[0].toUpperCase() + key.slice(1)}: ${this[key]}`);
+            if (this.hasOwnProperty(key.toLowerCase())) {
+                console.log(`${key[0].toUpperCase() + key.slice(1)}: ${this[key.toLowerCase()]}`);
             } else {
                 console.log(`\n"${key}" não existe nas configurações.\n`);
             };
