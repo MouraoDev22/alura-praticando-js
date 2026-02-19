@@ -1,8 +1,8 @@
 // Você está criando um aplicativo de culinária que mostra receitas com seus ingredientes, tempo de preparo e instruções. Cada receita é representada por um objeto que contém uma lista de ingredientes armazenada como um array. Diante disso, escreva um programa que:
 
 // . Crie um objeto receita com as propriedades: nome, ingredientes (array com pelo menos 5 itens) e tempoPreparo.
-// Acesse o índice 2 da lista que está dentro do objeto.
-// Exiba no console a frase: "Ingrediente complementar: [ingrediente]".
+// . Acesse o índice 2 da lista que está dentro do objeto.
+// . Exiba no console a frase: "Ingrediente complementar: [ingrediente]".
 
 const receitasDeBolo = [
     {
@@ -40,13 +40,22 @@ const receitasDeBolo = [
     }
 ];
 
-exibirIngrediente(receitasDeBolo[1], 3);
+exibirIngrediente(receitasDeBolo, 'Bolo de Chocolate', 3);
 
-function exibirIngrediente(receita, ...numIngrediente) {
-    console.log(`\nReceita: ${receita.nome}\n`);
-    for (const num of numIngrediente) {
-        console.log(`Ingrediente complementar: ${receita.ingredientes[num - 1].nome[0].toUpperCase() + receita.ingredientes[num - 1].nome.slice(1)} - ${receita.ingredientes[num - 1].quantidade}`);
+function exibirIngrediente(tipoReceita, nomeReceita, ...numIngredientes) {
+    for (const receita of tipoReceita) {
+        if (receita.nome === nomeReceita) {
+            const receitaEncontrada = { ...receita };
+            
+            console.log(`\nReceita: ${receitaEncontrada.nome}\n`);
+            for (const num of numIngredientes) {
+                console.log(`Ingrediente complementar: ${receitaEncontrada.ingredientes[num - 1].nome[0].toUpperCase() + receitaEncontrada.ingredientes[num - 1].nome.slice(1)} - ${receitaEncontrada.ingredientes[num - 1].quantidade}`);
+            };
+            console.log('');
+            return;
+        } else {
+            console.log(`Receita "${nomeReceita}" não encontrada.`);
+            return;
+        };
     };
-    console.log('');
-    return;
 };
