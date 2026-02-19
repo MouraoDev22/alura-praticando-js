@@ -4,7 +4,7 @@
 // . O objeto deve conter as propriedades: nome, preco, disponivel.
 // . Exiba o objeto no console.
 
-const produtos = [
+const produtosEletronicos = [
     {
         nome: 'Monitor',
         preco: 500,
@@ -22,7 +22,7 @@ const produtos = [
     } 
 ];
 
-exibirProduto(produtos, 'Monitor');
+exibirProduto(produtosEletronicos, 'Monitor');
 
 function exibirProduto(produtos, ...nomeProdutos) {
     console.log('\nCatálogo de Produtos:\n');
@@ -34,4 +34,5 @@ function exibirProduto(produtos, ...nomeProdutos) {
             console.log('');
         };
     };
+    return;
 };
