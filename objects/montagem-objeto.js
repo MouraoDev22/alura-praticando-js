@@ -11,7 +11,10 @@ const array = [
 ];
 
 const novoObjeto = montarObjeto(array);
+
+console.log('');
 console.log(novoObjeto);
+console.log('');
 
 function montarObjeto(array) {
     const objeto = {};
