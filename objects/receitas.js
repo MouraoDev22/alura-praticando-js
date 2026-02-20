@@ -43,6 +43,10 @@ const receitasDeBolo = [
 exibirIngredientes(receitasDeBolo, 'Bolo de Chocolate', 3);
 
 function exibirIngredientes(tipoReceita, nomeReceita, ...numIngredientes) {
+    if (numIngredientes.length === 0) {
+        numIngredientes = [1, 2, 3, 4, 5];
+    };
+    
     for (const receita of tipoReceita) {
         if (receita.nome.toLowerCase().replace(/\s/g, '') === nomeReceita.toLowerCase().replace(/\s/g, '')) {
             const receitaEncontrada = { ...receita };
@@ -54,7 +58,7 @@ function exibirIngredientes(tipoReceita, nomeReceita, ...numIngredientes) {
             console.log('');
             return;
         } else {
-            console.log(`Receita "${nomeReceita}" não encontrada.`);
+            console.log(`\nReceita "${nomeReceita}" não encontrada.\n`);
             return;
         };
     };

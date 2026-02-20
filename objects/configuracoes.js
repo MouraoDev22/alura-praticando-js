@@ -30,7 +30,7 @@ const configuracoes = {
             if (this.hasOwnProperty(key.toLowerCase())) {
                 console.log(`${key[0].toUpperCase() + key.slice(1)}: ${this[key.toLowerCase()]}`);
             } else {
-                console.log(`\n"${key}" não existe nas configurações.\n`);
+                console.log(`"${key}" não existe nas configurações.`);
             };
         };
         console.log('');
@@ -38,4 +38,4 @@ const configuracoes = {
     },
 };
 
-configuracoes.exibirConfig(configuracoes.exibirConfig);
+configuracoes.exibirConfig('exibirConfig');
